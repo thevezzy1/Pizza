@@ -1,0 +1,643 @@
+﻿<!DOCTYPE html>
+<!--
+Это объявление говорит браузеру, что мы используем самую современную версию HTML (HTML5).
+Как будто говорим: "Эй, браузер, понимай меня по-современному!"
+-->
+<html lang="ru">
+<!--
+Это основной тег HTML, он как коробка, в которой лежит весь сайт.
+lang="ru" говорит, что язык сайта - русский.
+Это нужно для правильного отображения текста и других вещей.
+-->
+<head>
+    <!--
+    Этот тег содержит всякую важную информацию о сайте, но не показывает её на самой странице.
+    Как будто паспорт сайта: кто он, что он умеет.
+    -->
+    <meta charset="UTF-8">
+    <!--
+    Это говорит браузеру, как понимать текст.
+    UTF-8 - это как самый полный алфавит, чтобы все буквы и символы отображались правильно, даже русские.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+    Это очень важно для мобильных устройств!
+    width=device-width говорит, что ширина сайта должна быть как ширина экрана телефона или планшета.
+    initial-scale=1.0 говорит, что при первом открытии масштаб должен быть 1:1 (без увеличения).
+    Без этого сайт на телефоне будет выглядеть очень маленьким.
+    -->
+    <title>Пиццерия</title>
+    <!--
+    Это заголовок сайта, который показывается во вкладке браузера.
+    Как будто имя сайта, чтобы его легко было найти среди других вкладок.
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--
+    Это подключение Bootstrap - готового набора стилей и компонентов для сайта.
+    Как будто купили конструктор LEGO, чтобы не делать всё с нуля.
+    href - это адрес, где лежит этот конструктор.
+    rel="stylesheet" говорит, что это именно стили (как обои для сайта).
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!--
+    Это подключение Font Awesome - набора иконок для сайта (стрелочки, корзинки, звёздочки).
+    Как будто купили наклейки для украшения сайта.
+    -->
+    <link rel="stylesheet" href="style.css">
+    <!--
+    Это подключение вашего собственного файла со стилями.
+    Как будто добавили свои уникальные детали в конструктор LEGO.
+    style.css - это файл, где вы будете писать свои стили, чтобы изменить внешний вид сайта.
+    -->
+</head>
+
+<body>
+    <!-- Навигация -->
+    <!-- Это комментарии, он не отображаются на сайте, а нужен только для разработчиков, чтобы понимать код -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <!-- Это навигационная панель (меню) сайта.
+            navbar - это основной класс Bootstrap для навигации.
+            navbar-expand-lg говорит, что на больших экранах (lg - large, больше 992 пикселей) меню будет горизонтальным, а на маленьких - свёрнутым в кнопку.
+            navbar-dark говорит, что текст в меню будет светлым.
+            bg-success говорит, что фон меню будет зелёным (success - это один из цветов Bootstrap).
+        -->
+        <div class="container">
+            <!-- Это контейнер для содержимого меню, чтобы оно не прилипало к краям экрана.
+                  container - это класс Bootstrap, который центрирует содержимое и ограничивает его ширину.
+            -->
+            <a class="navbar-brand" href="#">
+                <!-- Это ссылка-логотип в левом углу меню.
+                        navbar-brand - это класс Bootstrap, который стилизует логотип.
+                        href="#" говорит, что ссылка ведёт на текущую страницу (то есть никуда).
+                -->
+                <i class="fas fa-spa fa-me-2"></i>Pizza
+                <!-- Это иконка цветка из Font Awesome.
+                        i - это тег для иконок.
+                        fas fa-spa - это классы Font Awesome, которые указывают, какую именно показывать (spa - это цветок или что-то вроде).
+                        fa-me-2 говорит, что нужно добавить небольшой отступ справа (margin-end: 2).
+                -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <!-- Это кнопка, которая появляется на маленьких экранах, чтобы открыть/закрыть меню.
+                        navbar-toggler - это класс Bootstrap, который стилизует кнопку.
+                        type="button" говорит, что это просто кнопка, а не что-то другое.
+                        data-bs-toggle="collapse" говорит, что при нажатии на кнопку нужно что-то свернуть или развернуть.
+                        data-bs-target="#navbarContent" говорит, что нужно свернуть или развернуть элемент с id="navbarContent".
+                -->
+                <span class="navbar-toggler-icon"></span>
+                <!-- Это иконка для кнопки-гамбургера (три полоски).
+                        navbar-toggler-icon - это класс Bootstrap, который добавляет иконку.
+                -->
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Это блок, который содержит ссылки меню.
+                        collapse navbar-collapse говорит, что на маленьких экранах этот блок будет свёрнут, а на больших - развернут.
+                        id="navbarContent" - это идентификатор, который связывает этот блок с кнопкой-гамбургером.
+                -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Это список ссылок меню.
+                              navbar-nav - это класс Bootstrap, который стилизует список.
+                              me-auto говорит, что нужно прижать список к левому краю (margin-end: auto).
+                              mb-2 говорит, что нужно добавить отступ снизу на маленьких экранах (margin-bottom: 2).
+                              mb-lg-0 говорит, что на больших экранах отступ снизу не нужен (margin-bottom: 0).
+                    -->
+
+                    <li class="nav-item dropdown">
+                        <!-- Это элемент списка, который содержит выпадающее меню.
+                        nav-item - это класс Bootstrap, который стилизует элемент списка.
+                        dropdown говорит, что это выпадающее меню.
+                        -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <!-- Это ссылка, которая открывает выпадающее меню.
+                            nav-link - это класс Bootstrap, который стилизует ссылку.
+                            dropdown-toggle говорит, что это ссылка для выпадающего меню.
+                            href="#" говорит, что ссылка ведёт на текущую страницу (то есть никуда).
+                            role="button" говорит, что это кнопка для скринридеров (программ для чтения с экрана).
+                            data-bs-toggle="dropdown" говорит, что при нажатии на ссылку нужно открыть выпадающее меню.
+                            -->
+                            Каталог
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Это список элементов выпадающего меню.
+                            dropdown-menu - это класс Bootstrap, который стилизует список.
+                            -->
+                            <li><a class="dropdown-item" href="#">Меню</a></li>
+                            <!-- Это элемент выпадающего меню.
+                            dropdown-item - это класс Bootstrap, который стилизует элемент списка.
+                            href="#" говорит, что ссылка ведёт на текущую страницу (то есть никуда).
+                            -->
+                            <li><a class="dropdown-item" href="#">Забронировать стол</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Это обычный пункт меню -->
+                        <a class="nav-link" href="#reviews">Отзывы</a>
+                        <!-- nav-link - стилизация ссылки под пункт меню -->
+                        <!-- href="#reviews" - при клике перейдёт к секции с id="reviews" (отзывам) -->
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <!-- d-flex - делает элементы в строке, а не друг под другом -->
+                    <button class="btn btn-light me-2">
+                        <!-- btn - базовый класс для кнопки -->
+                        <!-- btn-light - делает кнопку светлой -->
+                        <!-- me-2 - добавляет отступ справа -->
+                        <i class="fas fa-shopping-cart"></i>
+                        <!-- fas fa-shopping-cart - иконка корзины -->
+                    </button>
+                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <!-- btn-outline-light - кнопка с прозрачным фоном и светлой обводкой -->
+                        <!-- data-bs-toggle="modal" data-bs-target="#loginModal" - делает кнопку открывающей модальное окно с id="loginModal" -->
+                        Вход
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Видео-блок -->
+    <section class="hero-video mb-5">
+        <div class="container d-flex flex-column align-items-center">
+            <h2 class="mb-4 text-center">Видео обзор</h2>
+            <div class="ratio ratio-16x9" style="max-width: 800px; width: 100%;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8TwO30r_zek?si=NWl2y84858Pek7k0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+          
+    <!-- Товары без карусели -->
+    <section class="container mb-5">
+        <!--
+        container - ограничивает ширину и центрирует контент
+        mb-5 - добавляет отступ снизу
+        -->
+        <h2 class="text-center mb-4">Хиты продаж</h2>
+        <!--
+        text-center - выравнивает текст по центру
+        mb-4 - добавляет отступ снизу
+        -->
+        <div class="row">
+            <!--
+            row - строка, внутри которой будут располагаться товары
+            -->
+            <!-- Первый товар -->
+            <div class="col-md-4 mb-4">
+                <!--
+                col-md-4 - делает колонку шириной 4/12 (33%) на средних и больших экранах (md - medium, больше 768 пикселей)
+                mb-4 - добавляет отступ снизу
+                -->
+                <div class="card product-card h-100">
+                    <!--
+                    card - базовый класс для карточки
+                    product-card - ваш класс для стилизации карточки (можно придумать любое название)
+                    h-100 - делает высоту карточки 100% (чтобы все карточки были одинаковой высоты)
+                    -->
+                    <img src="img/Ветчина и грибы.jpg" class="card-img-top">
+                    <!--
+                    card-img-top - делает изображение адаптивным и располагает его сверху карточки
+                    src="img/1.jpg" - путь к изображению
+                    -->
+                    <div class="card-body">
+                        <!-- card-body - добавляет отступы внутри карточки -->
+                        <h5 class="card-title">Ветчина и грибы</h5>
+                        <!-- card-title - стилизация заголовка карточки -->
+                        <p class="card-text">
+                            <!-- card-text - стилизация текста карточки -->
+                            <span class="badge bg-success mb-2">Хит продаж</span>
+                            <!--
+                            badge - метка-метка
+                            bg-success - делает фон зелёным
+                            mb-2 - добавляет отступ снизу
+                            br - перенос строки
+                            -->
+                            Ветчина, шампиньоны, увеличенная порция моцареллы, фирменный томатный соус.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!--
+                            d-flex - делает элементы в строке, а не друг под другом
+                            justify-content-between - располагает элементы по краям строки (один слева, другой справа)
+                            align-items-center - выравнивает элементы по вертикали
+                            -->
+                            <span class="h5 text-success">590 ₽</span>
+                            <!--
+                            h5 - делает текст крупным
+                            text-success - делает текст зелёным
+                            -->
+                            <button class="btn btn-sm btn-outline-success">
+                                <!--
+                                btn - базовый класс для кнопки
+                                btn-sm - делает кнопку маленькой
+                                btn-outline-success - делает кнопку с прозрачным фоном и зелёной обводкой
+                                -->
+                                <i class="fas fa-cart-plus"></i>
+                                <!-- fas fa-cart-plus - иконка корзины -->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Второй товар -->
+            <div class="col-md-4 mb-4">
+                <!-- Всё аналогично, как и для первого товара -->
+                <div class="card product-card h-100">
+                    <img src="img/Пепперони.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Пепперони</h5>
+                        <p class="card-text">
+                            <span class="badge bg-danger mb-2">Новинка</span>
+                            Пикантная пепперони, увеличенная порция моцареллы, фирменный томатный соус.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 text-success">590 ₽</span>
+                            <button class="btn btn-sm btn-outline-success">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Третий товар -->
+            <div class="col-md-4 mb-4">
+                <!-- Всё аналогично, как и для первого товара -->
+                <div class="card product-card h-100">
+                    <img src="img/Цыпленок барбекю.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Цыпленок барбекю</h5>
+                        <p class="card-text">
+                            <span class="badge bg-warning mb-2">Акция</span>
+                            Цыпленок, бекон, соус барбекю, красный лук, моцарелла, фирменный томатный соус.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 text-success">390 ₽</span>
+                            <button class="btn btn-sm btn-outline-success">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Галерея -->
+    <div class="container mb-5">
+        <!--
+        container - ограничивает ширину и центрирует контент
+        mb-5 - добавляет отступ снизу
+        -->
+        <h2 class="text-center mb-4">Меню</h2>
+        <!--
+        text-center - выравнивает текст по центру
+        mb-4 - добавляет отступ снизу
+        -->
+        <div class="row g-3">
+            <!--
+            row - строка, внутри которой будут располагаться изображения
+            g-3 - добавляет отступы между изображениями
+            -->
+            <div class="col-md-4 col-6">
+                <!--
+                col-md-4 - делает колонку шириной 4/12 (33%) на средних и больших экранах
+                col-6 - делает колонку шириной 6/12 (50%) на маленьких экранах
+                -->
+                <img src="img/Четыре сезона.jpg" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-img="img/4.jpg">
+                <!--
+                img-thumbnail - стилизует изображение как миниатюру
+                data-bs-toggle="modal" - при клике открывает модальное окно
+                data-bs-target="#galleryModal" - указывает, какое модальное окно открывать (с id="galleryModal")
+                data-bs-img="img/4.jpg" - путь к изображению для модального окна
+                -->
+            </div>
+            <!-- Ещё два таких же изображения -->
+            <div class="col-md-4 col-6">
+                <img src="img/Овощи и грибы.jpg" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-img="img/5.jpg">
+            </div>
+            <div class="col-md-4 col-6">
+                <img src="img/Сырная.jpg" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#galleryModal" data-bs-img="img/6.jpg">
+            </div>
+        </div>
+    </div>
+
+    <!-- Форма обратной связи -->
+    <section class="container mb-5">
+        <!--
+        container - ограничивает ширину и центрирует контент
+        mb-5 - добавляет отступ снизу
+        -->
+        <h2 class="text-center mb-4">Остались вопросы?</h2>
+        <!--
+        text-center - выравнивает текст по центру
+        mb-4 - добавляет отступ снизу
+        -->
+        <div class="row justify-content-center">
+            <!--
+            row - строка, внутри которой будет располагаться форма
+            justify-content-center - центрирует форму по горизонтали
+            -->
+            <div class="col-md-8">
+                <!--
+                col-md-8 - делает колонку шириной 8/12 (66%) на средних и больших экранах
+                -->
+                <form>
+                    <!-- форма обратной связи -->
+                    <div class="mb-3">
+                        <!-- mb-3 - добавляет отступ снизу -->
+                        <label for="name" class="form-label">Ваше имя</label>
+                        <!--
+                        label - подпись к поле ввода
+                        for="name" - связывает подпись с полем ввода с id="name"
+                        form-label - стилизует подпись
+                        -->
+                        <input type="text" class="form-control" id="name" placeholder="Введите ваше имя">
+                        <!--
+                        input - поле ввода
+                        type="text" - тип поля ввода (текст)
+                        class="form-control" - стилизует поле ввода
+                        id="name" - идентификатор поля ввода
+                        placeholder="Введите ваше имя" - текст-подсказка в поле ввода
+                        -->
+                    </div>
+                    <!-- Аналогичные поля для email и телефона -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Ваш email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Введите ваш email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Ваш телефон</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Введите ваш телефон">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Сообщение</label>
+<textarea class="form-control" id="message" rows="4" placeholder="Введите ваше сообщение"></textarea>
+                        <!--
+                        textarea - многострочное поле ввода
+                        rows="4" - количество строк в поле ввода
+                        -->
+                    </div>
+                    <div class="mb-3 form-check">
+                        <!-- mb-3 - добавляет отступ снизу -->
+                        <input type="checkbox" class="form-check-input" id="agreement">
+                        <!--
+                        input - поле ввода
+                        type="checkbox" - тип поля ввода (галочка)
+                        class="form-check-input" - стилизует поле ввода
+                        id="agreement" - идентификатор поля ввода
+                        -->
+                        <label class="form-check-label" for="agreement">Согласен с условиями обработки персональных данных</label>
+                        <!--
+                        label - подпись к поле ввода
+                        class="form-check-label" - стилизует подпись
+                        for="agreement" - связывает подпись с полем ввода с id="agreement"
+                        -->
+                    </div>
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                    <!--
+                    button - кнопка отправки формы
+                    type="submit" - тип кнопки (отправка формы)
+                    class="btn btn-success" - стилизует кнопку
+                    -->
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция отзывов -->
+    <section class="container mb-5" id="reviews">
+        <!--
+        container - ограничивает ширину и центрирует контент
+        mb-5 - добавляет отступ снизу
+        id="reviews" - идентификатор секции (для перехода по ссылке из меню)
+        -->
+        <h2 class="text-center mb-4">Что о нас говорят?</h2>
+        <!--
+        text-center - выравнивает текст по центру
+        mb-4 - добавляет отступ снизу
+        -->
+        <div class="row">
+            <!--
+            row - строка, внутри которой будут располагаться отзывы
+            -->
+            <!-- Первый отзыв -->
+            <div class="col-md-6">
+                <!--
+                col-md-6 - делает колонку шириной 6/12 (50%) на средних и больших экранах
+                -->
+                <div class="card mb-3">
+                    <!--
+                    card - базовый класс для карточки
+                    mb-3 - добавляет отступ снизу
+                    -->
+                    <div class="card-body">
+                        <!-- card-body - добавляет отступы внутри карточки -->
+                        <h5 class="card-title">Владислав</h5>
+                        <!-- card-title - стилизация заголовка карточки -->
+                        <div class="text-warning">
+                            <!-- text-warning - делает текст жёлтым (цвет предупреждения) -->
+                            <i class="fas fa-star"></i>
+                            <!-- fas fa-star - иконка звезды -->
+                            <i class="fas fa-star"></i>
+                            <!-- Повторяем иконки звёзд для рейтинга -->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="card-text">
+                            <!-- card-text - стилизация текста карточки -->
+                            Отличная пиццерия! Вкусная пицца, профессиональное обслуживание и уютная атмосфера. Обязательно вернёмся и рекомендуем друзьям!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Второй отзыв (аналогично первому) -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Вероника</h5>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <!-- far fa-star - пустая иконка звезды -->
+                        </div>
+                        <p class="card-text">
+                            Отличная пиццерия! Вкусная кухня, внимательное обслуживание и уютная обстановка. Всё на высшем уровне — обязательно вернусь ещё и посоветую знакомым!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="bg-dark text-white py-4">
+        <!--
+        bg-dark - делает фон тёмным
+        text-white - делает текст белым
+        py-4 - добавляет отступы сверху и снизу
+        -->
+        <div class="container-fluid">
+            <!-- container-fluid - растягивает блок на всю ширину экрана -->
+            <div class="row">
+                <!-- row - строка, внутри которой будут располагаться элементы футера -->
+                <div class="col-md-4">
+                    <!-- col-md-4 - делает колонку шириной 4/12 (33%) на средних и больших экранах -->
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Волгодонск,ул.Ленина  73/94</p>
+                    <!-- i - иконка маркера -->
+                    <!-- me-2 - добавляет отступ справа -->
+                    <p><i class="fas fa-phone me-2"></i>+7 (988) 537-23-97</p>
+                    <!-- i - иконка телефона -->
+                    <!-- me-2 - добавляет отступ справа -->
+                </div>
+                <div class="col-md-4">
+                    <!-- col-md-4 - делает колонку шириной 4/12 (33%) на средних и больших экранах -->
+                    <h5>Соцсети</h5>
+                    <div class="social-links">
+                        <!-- div для ссылок на соцсети -->
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <!-- a - ссылка -->
+                        <!-- text-white - делает текст белым -->
+                        <!-- me-3 - добавляет отступ справа -->
+                        <!-- fab fa-instagram - иконка Instagram -->
+                        <!-- fa-2x - увеличивает размер иконки -->
+                        <a href="#" class="text-white me-3"><i class="fab fa-vk fa-2x"></i></a>
+                        <!-- fab fa-vk - иконка VK -->
+                        <a href="#" class="text-white me-3"><i class="fab fa-telegram fa-2x"></i></a>
+                        <!-- fab fa-telegram - иконка Telegram -->
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- col-md-4 - делает колонку шириной 4/12 (33%) на средних и больших экранах -->
+                    <div class="input-group mb-3">
+                        <!-- input-group - группа элементов для ввода (поле и кнопка) -->
+                        <!-- mb-3 - добавляет отступ снизу -->
+                        <input type="text" class="form-control" placeholder="Email для рассылки">
+                        <!-- form-control - стилизация поля для ввода -->
+                        <button class="btn btn-success" type="button">Подписаться</button>
+                        <!-- btn btn-success - стилизация кнопки -->
+                    </div>
+                    <small class="text-muted">Подпишитесь на новости и акции</small>
+                    <!-- small - делает текст маленьким -->
+                    <!-- text-muted - делает текст серым -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <!--
+        modal fade - базовый класс для модального окна
+        tabindex="-1" - делает модальное окно недоступным для навигации с помощью клавиши Tab
+        aria-labelledby="galleryModalLabel" - связывает модальное окно с заголовком с id="galleryModalLabel"
+        aria-hidden="true" - скрывает модальное окно от скринридеров
+        -->
+        <div class="modal-dialog modal-lg">
+            <!--
+            modal-dialog - стилизует модальное окно
+            modal-lg - делает модальное окно большим
+            -->
+            <div class="modal-content">
+                <!-- modal-content - стилизует содержимое модального окна -->
+                <div class="modal-header">
+                    <!-- modal-header - стилизует заголовок модального окна -->
+                    <h5 class="modal-title" id="galleryModalLabel"></h5>
+                    <!-- modal-title - стилизует заголовок модального окна -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    <!--
+                    button - кнопка закрытия модального окна
+                    type="button" - тип кнопки (просто кнопка)
+                    class="btn-close" - стилизует кнопку закрытия
+                    data-bs-dismiss="modal" - закрывает модальное окно при нажатии
+                    aria-label="Закрыть" - подпись для скринридеров
+                    -->
+                </div>
+                <div class="modal-body">
+                    <!-- modal-body - стилизует содержимое модального окна -->
+                    <img src="" class="img-fluid" id="modalImage">
+                    <!--
+                    img - изображение
+                    src="" - путь к изображению (пустой по умолчанию)
+                    class="img-fluid" - делает изображение адаптивным
+                    id="modalImage" - идентификатор изображения
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Модальное окно для входа -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <!-- Всё аналогично модальному окну галереи -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Вход</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Форма для входа -->
+                    <form>
+                        <!-- Форма для входа -->
+                        <div class="mb-3">
+                            <!-- mb-3 - добавляет отступ снизу -->
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <!--
+                            label - подпись к поле ввода
+                            for="loginEmail" - связывает подпись с полем ввода с id="loginEmail"
+                            form-label - стилизует подпись
+                            -->
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Введите ваш email">
+                            <!--
+                            input - поле ввода
+                            type="email" - тип поля ввода (email)
+                            class="form-control" - стилизует поле ввода
+                            id="loginEmail" - идентификатор поля ввода
+                            placeholder="Введите ваш email" - текст-подсказка в поле ввода
+                            -->
+                        </div>
+                        <!-- Аналогичное поле для пароля -->
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Введите ваш пароль">
+                        </div>
+                        <button type="submit" class="btn btn-success">Войти</button>
+                        <!--
+                        button - кнопка отправки формы
+                        type="submit" - тип кнопки (отправка формы)
+                        class="btn btn-success" - стилизует кнопку
+                        -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты Bootstrap и ваш скрипт -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!--
+    Это подключение JavaScript-файла Bootstrap.
+    Bootstrap использует JavaScript для некоторых своих компонентов, например, для выпадающих меню и модальных окон.
+    -->
+    <script>
+        // JavaScript для модального окна галереи
+        const galleryModal = document.getElementById('galleryModal') // Находим модальное окно...
+        galleryModal.addEventListener('show.bs.modal', event => { // При открытии модального окна...
+            const img = event.relatedTarget // Находим изображение, которое открыло модальное окно...
+            const imgSrc = img.getAttribute('data-bs-img') // Получаем путь к изображению
+            const modalImage = galleryModal.querySelector('#modalImage') // Находим изображение в модальном окне
+            modalImage.src = imgSrc // Устанавливаем путь к изображению в модальном окне
+        })
+    </script>
+</body>
+</html>
+
+<script>
+    const galleryModal = document.getElementById('galleryModal')
+    galleryModal.addEventListener('show.bs.modal', event => {
+        const img = event.relatedTarget
+        const imgSrc = img.getAttribute('data-bs-img')
+        const modalImage = galleryModal.querySelector('#modalImage')
+        modalImage.src = imgSrc
+    })
+</script>

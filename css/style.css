@@ -1,0 +1,127 @@
+/* основные стили для всей страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Современный стек шрифтов */
+    color: #333; /* Основной цвет текста - темно-серый */
+    line-height: 1.6; /* Улучшает читаемость текста */
+}
+
+/* Стили для навигационной панели */
+.navbar-brand {
+    font-weight: 700; /* Жирное начертание для логотипа */
+    font-size: 1.5rem; /* Крупный размер шрифта */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    transition: color 0.3s; /* Плавное изменение цвета ссылок */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+        color: rgba(255, 255, 255, 0.8); /* Эффект при наведении: полупрозрачный белый */
+}
+
+/* Стили для видео-секции */
+.hero-video {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Градиентный фон */
+    padding: 60px 0; /* Вертикальные отступы */
+    border-radius: 10px; /* Скругление углов блока */
+    margin: 20px auto; /* Центрирование блока */
+    max-width: 95%; /* Ограничение максимальной ширины */
+}
+
+/* Стили для карточек товаров */
+.product-card {
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 10px; /* Скругление углов карточки */
+    overflow: hidden; /* Обрезаем выходящие за границы элементы */
+    transition: all 0.3s ease; /* Плавная анимация всех свойств */
+}
+
+.product-card:hover {
+        transform: translateY(-5px); /* Эффект "подъема" карточки */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Тень при наведении */
+}
+
+.product-card .card-img-top {
+        border-bottom: 1px solid #eee; /* Разделитель между изображением и текстом */
+}
+
+.product-card .badge {
+        font-size: 0.8rem; /* Размер текста для бейджей */
+        font-weight: 500; /* Полужирное начертание */
+}
+
+/* Стили для галереи изображений */
+.img-thumbnail {
+    cursor: pointer; /* Курсор-указатель для интерактивности */
+    transition: transform 0.3s; /* Анимация масштабирования */
+}
+
+.img-thumbnail:hover {
+        transform: scale(1.02); /* Увеличение при наведении */
+}
+
+/* Кастомизация ползунка для формы */
+.form-range::-webkit-slider-thumb {
+    background: #28a745; /* Зеленый цвет для WebKit-браузеров */
+}
+
+.form-range:-moz-range-thumb {
+    background: #28a745; /* Зеленый цвет для Firefox */
+}
+
+.form-range::-ms-thumb {
+    background: #28a745; /* Зеленый цвет для Edge */
+}
+/* Стили для карточек отзывов */
+.card {
+    border: none; /* Убираем стандартную рамку */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Легкая тень */
+    transition: transform 0.3s; /* Анимация перемещения */
+}
+
+.card:hover {
+        transform: translateY(-5px); /* Эффект "подъема" при наведении */
+}
+
+.text-warning {
+    color: #ffc107 !important; /* Желтый цвет для звезд рейтинга */
+}
+
+/* Стили для подвала сайта */
+footer {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Градиентный фон */
+}
+
+.social-links a {
+    transition: opacity 0.3s; /* Плавное изменение прозрачности */
+}
+
+.social-links a:hover {
+        opacity: 0.8; /* Эффект при наведении на иконки */
+        text-decoration: none; /* Убираем подчеркивание */
+}
+
+/* Кастомизация модальных окон */
+.modal-content {
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 10px; /* Скругление углов */
+}
+
+.modal-body img {
+    max-height: 80vh; /* Ограничение высоты изображения */
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    .hero-video {
+        padding: 40px 0; /* Уменьшаем отступы */
+    }
+
+    .product-card {
+        margin-bottom: 20px; /* Отступ между карточками */
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem; /* Уменьшаем размер логотипа */
+    }
+}
